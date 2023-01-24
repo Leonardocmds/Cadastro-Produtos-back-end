@@ -29,13 +29,13 @@ public class Produto {
 	private BigDecimal preco;
 	
 	@NotNull
-	private int quantidade;
+	private BigDecimal quantidade;
 
 	public Produto() {
 
 	}
 
-	public Produto(Long id, String nome, BigDecimal preco, int quantidade) {
+	public Produto(Long id, String nome, BigDecimal preco, BigDecimal quantidade) {
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
@@ -73,16 +73,27 @@ public class Produto {
 	}
 
 
-	public int getQuantidade() {
+	public BigDecimal getQuantidade() {
 		return quantidade;
 	}
 
 
-	public void setQuantidade(int quantidade) {
+	public void setQuantidade(BigDecimal quantidade) {
 		this.quantidade = quantidade;
 	}
 		
-
+	public void atualizarInformacoes(AtualizaProduto dados) {
+		if(dados.nome() != null) {
+			this.nome = dados.nome();
+		}
+		if(dados.preco() != null) {
+			this.preco = dados.preco();
+		}
+		if(dados.quantidade() != null) {
+			this.quantidade = dados.quantidade();
+		}
+	}
+	 
 	
 
 }
