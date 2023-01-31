@@ -22,20 +22,20 @@ public class Produto {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
+	
 	private String nome;
 	
-	@NotNull
+	
 	private BigDecimal preco;
 	
-	@NotNull
-	private BigDecimal quantidade;
+	
+	private int quantidade;
 
 	public Produto() {
 
 	}
 
-	public Produto(Long id, String nome, BigDecimal preco, BigDecimal quantidade) {
+	public Produto(Long id, String nome, BigDecimal preco, int quantidade) {
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
@@ -73,12 +73,12 @@ public class Produto {
 	}
 
 
-	public BigDecimal getQuantidade() {
+	public int getQuantidade() {
 		return quantidade;
 	}
 
 
-	public void setQuantidade(BigDecimal quantidade) {
+	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
 		
@@ -86,10 +86,7 @@ public class Produto {
 		if(dados.nome() != null) {
 			this.nome = dados.nome();
 		}
-		if(dados.preco() != null) {
-			this.preco = dados.preco();
-		}
-		if(dados.quantidade() != null) {
+		if(dados.quantidade() != 0) {
 			this.quantidade = dados.quantidade();
 		}
 	}
