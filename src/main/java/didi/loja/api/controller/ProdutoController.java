@@ -39,9 +39,13 @@ public class ProdutoController {
 	
 	@GetMapping()
 	public List<Produto> listar(String nome){
-		return produtoRepository.findAll(Specification.where(ProdutoSpecification.nome(nome)));
+			return produtoRepository.findByPesq(nome);
 	}
 	
+	@GetMapping("/faltas")
+	public List<Produto> listaFalta(){
+		return produtoRepository.findByQnt();
+	}
 	
 //	@Transactional
 //	@PutMapping("{id}")

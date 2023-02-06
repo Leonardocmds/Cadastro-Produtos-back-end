@@ -16,5 +16,8 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long>,
 	
 	@Query(nativeQuery = true, value = "SELECT * FROM produto WHERE produto.quantidade <= 5")
 	List<Produto> findByQnt();
+	
+	@Query(nativeQuery = true, value = "SELECT * FROM produto WHERE nome Like %:pnome% AND quantidade > 0 ")
+	List<Produto> findByPesq(String pnome);
 
 }
