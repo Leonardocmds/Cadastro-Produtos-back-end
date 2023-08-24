@@ -6,8 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,18 +28,6 @@ public class Produto {
 	
 	
 	private int quantidade;
-
-	public Produto() {
-
-	}
-
-	public Produto(Long id, String nome, BigDecimal preco, int quantidade) {
-		this.id = id;
-		this.nome = nome;
-		this.preco = preco;
-		this.quantidade = quantidade;
-	}
-
 
 	public Long getId() {
 		return id;
